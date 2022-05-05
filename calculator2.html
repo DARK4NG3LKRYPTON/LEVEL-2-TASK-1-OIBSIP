@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            background: radial-gradient(blue, indigo, black) no-repeat fixed;
+            padding: 60px 0px;
+        }
+        
+        button.clear {
+            background: darkred;
+            color: white;
+        }
+        
+        table {
+            background: black;
+            padding: 8px 6px;
+            border: 6px solid white;
+            text-align: center;
+            padding-bottom: 6px;
+            box-shadow: 8px 8px 27px navy;
+            border-radius: 20px;
+            margin-top: 100px;
+        }
+        
+        button.equal {
+            width: 90%;
+            background: black;
+        }
+        
+        button.equal:hover {
+            background: black;
+        }
+        
+        input[type="text"] {
+            width: 480px;
+            height: 90px;
+            border: 2px double white;
+            padding: 20px 30px;
+            font-size: 50px;
+            background: black;
+            font-weight: bold;
+            margin-bottom: 30px;
+            font-family: comicsans;
+            margin-top: 30px;
+            color: white;
+            border-bottom: 2px solid red;
+        }
+        
+        button {
+            padding: 10px 20px;
+            width: 100px;
+            height: 60px;
+            margin-bottom: 30px;
+            font-size: 32px;
+            font-weight: bold;
+            font-family: comicsans;
+            background: black;
+            border: box;
+            color: darkred;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: black;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form name="calci">
+        <table align="center">
+
+            <tr>
+                <td colspan="5"> <input type="text" name="result" placeholder="0" style="text-align:right"> </td>
+            </tr>
+
+            <tr>
+                <td><button type="button" value="sin" onclick="sin()"> SIN </button> </td>
+                <td><button type="button" value="cos" onclick="cos()"> COS </button> </td>
+                <td><button type="button" value="tan" onclick="tan()"> TAN </button> </td>
+                <td colspan="3">
+                    <button type="button" value="C" class="clear" onclick="remv()"> C </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td><button type="button" value="x^2" onclick="square()"> x<sup> 2 </button> </td>
+                <td><button type="button" value="x^3" onclick="cubed()"> x<sup> 3 </button> </td>
+                <td><button type="button" value="sqrt2" onclick="sqrt2()"> &radic; </button> </td>
+                <td><button type="button" value="sqrt3" onclick="sqrt3()"> &#8731; </button> </td>
+            </tr>
+
+            <tr>
+                <td><button type="button" value="1" onclick="number(value)"> 1 </button> </td>
+                <td><button type="button" value="2" onclick="number(value)"> 2 </button> </td>
+                <td><button type="button" value="3" onclick="number(value)"> 3 </button> </td>
+                <td><button type="button" value="BACKSPC" onclick="BACKSPC()"> < </button> </td>
+            </tr>
+
+            <tr>
+                <td><button type="button" value="4" onclick="number(value)"> 4 </button> </td>
+                <td><button type="button" value="5" onclick="number(value)"> 5 </button> </td>
+                <td><button type="button" value="6" onclick="number(value)"> 6 </button> </td>
+                <td><button type="button" value="-" onclick="number(value)"> - </button> </td>
+            </tr>
+
+            <tr>
+                <td><button type="button" value="7" onclick="number(value)"> 7 </button> </td>
+                <td><button type="button" value="8" onclick="number(value)"> 8 </button> </td>
+                <td><button type="button" value="9" onclick="number(value)"> 9 </button> </td>
+                <td><button type="button" value="/" onclick="number(value)"> / </button> </td>
+            </tr>
+
+            <tr>
+                <td><button type="button" value="." onclick="number(value)"> . </button> </td>
+                <td><button type="button" value="0" onclick="number(value)"> 0 </button> </td>
+                <td><button type="button" value="*" onclick="number(value)"> * </button> </td>
+                <td><button type="button" value="%" onclick="number(value)"> % </button> </td>
+            </tr>
+
+            <tr>
+                <td colspan="3"> <button type="button" value="=" onclick="equal()" class="equal"> = </button> </td>
+                <td><button type="button" value="+" onclick="number(value)"> + </button> </td>
+            </tr>
+
+        </table>
+    </form>
+
+
+    <script>
+        function sin() {
+            document.calci.result.value = Math.sin(document.calci.result.value);
+        }
+
+        function cos() {
+            document.calci.result.value = Math.cos(document.calci.result.value);
+        }
+
+        function tan() {
+            document.calci.result.value = Math.tan(document.calci.result.value);
+        }
+
+        function BACKSPC() {
+            var a = document.calci.result.value;
+            document.calci.result.value = a.substr(0, a.length - 1);
+        }
+
+        function square() {
+            document.calci.result.value = Math.pow(document.calci.result.value, 2);
+        }
+
+        function cubed() {
+            document.calci.result.value = Math.pow(document.calci.result.value, 3);
+        }
+
+        function sqrt2() {
+            document.calci.result.value = Math.pow(document.calci.result.value, 1 / 2);
+        }
+
+        function sqrt3() {
+            document.calci.result.value = Math.pow(document.calci.result.value, 1 / 3);
+        }
+
+        function number(value) {
+            document.calci.result.value += value;
+        }
+
+        function remv() {
+            document.calci.result.value = " ";
+        }
+
+        function equal() {
+            document.calci.result.value = eval(document.calci.result.value);
+        }
+    </script>
+</body>
+
+</html>
